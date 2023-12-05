@@ -35,4 +35,16 @@ services:
       context: ../fastapi
       dockerfile: Dockerfile
     ports:
+      - "8081:80"
+  react-app:
+    container_name: my-react-app
+    build:
+      context: ../react-app
+      dockerfile: Dockerfile
+    ports:
       - "80:80"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - api
+    restart: unless-stopped
