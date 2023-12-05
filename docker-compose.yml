@@ -30,3 +30,9 @@ services:
       - "8080:80"
     depends_on:
       - mysql
+  api:
+    build:
+      context: ../fastapi
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
