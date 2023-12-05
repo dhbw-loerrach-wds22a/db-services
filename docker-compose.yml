@@ -32,7 +32,7 @@ services:
       - mysql
   api:
     build:
-      context: ../fastapi
+      context: ../fast-api
       dockerfile: Dockerfile
     ports:
       - "8081:80"
