@@ -35,16 +35,16 @@ services:
       context: ../fast-api
       dockerfile: Dockerfile
     ports:
-      - "8081:80"
+      - "8082:80"
   react-app:
     container_name: my-react-app
     build:
       context: ../react-app
       dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_HOST=localhost:8082
     ports:
       - "80:80"
-    environment:
-      - NODE_ENV=production
     depends_on:
       - api
     restart: unless-stopped
